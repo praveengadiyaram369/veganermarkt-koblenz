@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://veganer-markt-koblenz.de/sitemap.xml
