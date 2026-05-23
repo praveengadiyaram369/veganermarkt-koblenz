@@ -1,0 +1,6 @@
+.git
+.git/**
+.DS_Store
+img/.DS_Store
+*.zip
+update-gallery.py
