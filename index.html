@@ -70,6 +70,25 @@ nav#navbar.scrolled{background:rgba(13,31,7,.97);box-shadow:0 2px 24px rgba(0,0,
   font-weight:600 !important;
 }
 .nav-cta:hover{background:var(--green-light) !important}
+.nav-dropdown{position:relative}
+.nav-dropdown-menu{
+  display:none;position:absolute;top:calc(100% + 10px);left:50%;
+  transform:translateX(-50%);
+  background:rgba(13,31,7,.97);
+  border:1px solid rgba(120,190,0,.25);
+  border-radius:10px;padding:.45rem 0;min-width:130px;
+  box-shadow:0 8px 28px rgba(0,0,0,.45);z-index:1001;
+}
+.nav-dropdown-menu::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px}
+.nav-dropdown:hover .nav-dropdown-menu{display:block;animation:dropIn .16s ease}
+@keyframes dropIn{from{opacity:0;transform:translateX(-50%) translateY(-5px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.nav-dropdown-menu a{
+  display:block;padding:.55rem 1.2rem;
+  font-size:.74rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,.68);transition:color .18s,background .18s;white-space:nowrap;
+}
+.nav-dropdown-menu a:hover{color:var(--lime);background:rgba(255,255,255,.06)}
+.nav-drop-arrow{font-size:.58rem;opacity:.5;margin-left:.18rem;vertical-align:middle}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;flex-shrink:0}
 .hamburger span{width:24px;height:2px;background:#fff;transition:all .3s;border-radius:1px;display:block}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -90,6 +109,14 @@ nav#navbar.scrolled{background:rgba(13,31,7,.97);box-shadow:0 2px 24px rgba(0,0,
 }
 .mobile-menu a:last-child{border-bottom:none}
 .mobile-menu a:hover{color:var(--lime)}
+.mobile-sub-link{
+  padding:.52rem 0 .52rem 2rem !important;
+  font-size:.79rem !important;
+  color:rgba(255,255,255,.38) !important;
+  letter-spacing:.04em !important;
+  border-bottom:none !important;
+}
+.mobile-sub-link:hover{color:var(--lime) !important}
 
 /* ── HERO ── */
 .hero{position:relative;height:100vh;min-height:640px;overflow:hidden}
@@ -249,10 +276,20 @@ nav#navbar.scrolled{background:rgba(13,31,7,.97);box-shadow:0 2px 24px rgba(0,0,
 }
 
 /* ── GALLERY ── */
+.gallery-tabs{display:flex;gap:.5rem;justify-content:center;margin-top:2.5rem;flex-wrap:wrap}
+.gal-tab{
+  padding:.52rem 1.6rem;border-radius:50px;
+  font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  cursor:pointer;border:2px solid var(--border);
+  background:transparent;color:var(--muted);
+  transition:all .22s;font-family:'DM Sans',sans-serif;
+}
+.gal-tab:hover{border-color:var(--green);color:var(--green)}
+.gal-tab.active{background:var(--green);border-color:var(--green);color:var(--green-nav)}
 .gallery-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:.6rem;margin-top:3rem;
+  gap:.6rem;margin-top:1.5rem;
 }
 .gal-item{
   position:relative;overflow:hidden;border-radius:10px;
@@ -485,7 +522,14 @@ footer{background:#060f03;padding:3rem 0 2rem}
   <ul class="nav-links">
     <li><a href="#das-event">Das Event</a></li>
     <li><a href="#programm">Programm</a></li>
-    <li><a href="#galerie">Galerie</a></li>
+    <li class="nav-dropdown">
+      <a href="#galerie">Galerie <span class="nav-drop-arrow">▾</span></a>
+      <div class="nav-dropdown-menu">
+        <a href="galerie.html?year=2025">2025</a>
+        <a href="galerie.html?year=2024">2024</a>
+        <a href="galerie.html?year=2023">2023</a>
+      </div>
+    </li>
     <li><a href="#videos">Videos</a></li>
     <li><a href="#anfahrt">Anfahrt</a></li>
     <li><a href="impressum.html">Impressum</a></li>
@@ -499,6 +543,9 @@ footer{background:#060f03;padding:3rem 0 2rem}
   <a href="#das-event"  onclick="closeMenu()">Das Event</a>
   <a href="#programm"  onclick="closeMenu()">Programm</a>
   <a href="#galerie"   onclick="closeMenu()">Galerie</a>
+  <a href="galerie.html?year=2025" class="mobile-sub-link" onclick="closeMenu()">— 2025</a>
+  <a href="galerie.html?year=2024" class="mobile-sub-link" onclick="closeMenu()">— 2024</a>
+  <a href="galerie.html?year=2023" class="mobile-sub-link" onclick="closeMenu()">— 2023</a>
   <a href="#videos"    onclick="closeMenu()">Videos</a>
   <a href="#anfahrt"   onclick="closeMenu()">Anfahrt</a>
   <a href="#kontakt"   onclick="closeMenu()">Kontakt</a>
@@ -657,10 +704,20 @@ footer{background:#060f03;padding:3rem 0 2rem}
     <div class="reveal" style="text-align:center">
       <span class="section-tag">Einblicke</span>
       <h2 class="section-title">Impressionen vom<br><em>Veganen Markt</em>.</h2>
-      <p class="section-body" style="max-width:480px;margin:0 auto">Stimmungsvolle Aufnahmen von Marktbesuchern, Ständen und der einzigartigen Atmosphäre in Koblenz.</p>
+      <p class="section-body" style="max-width:480px;margin:0 auto">Drei Jahre vegane Markt-Atmosphäre mitten in Koblenz — schau dir die Highlights an.</p>
     </div>
-    <div class="gallery-grid reveal rd1" id="galleryGrid">
+    <div class="gallery-tabs">
+      <button class="gal-tab active" data-year="2025" onclick="switchYear(this)">2025</button>
+      <button class="gal-tab" data-year="2024" onclick="switchYear(this)">2024</button>
+      <button class="gal-tab" data-year="2023" onclick="switchYear(this)">2023</button>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
       <!-- loaded dynamically -->
+    </div>
+    <div style="text-align:center;margin-top:2.2rem">
+      <a id="galleryCTA" href="galerie.html?year=2025" class="btn btn-outline">
+        Alle Fotos ansehen →
+      </a>
     </div>
   </div>
 </section>
@@ -914,53 +971,63 @@ function goTo(n) {
 }
 
 // ── Gallery ──────────────────────────────────────────────
-let galleryData = [], lbIndex = 0;
-async function loadGallery() {
+let galleryData = [], lbIndex = 0, activeYear = '2025';
+
+async function loadGallery(year) {
+  activeYear = year;
+  const grid = document.getElementById('galleryGrid');
+  const cta = document.getElementById('galleryCTA');
+  grid.style.opacity = '0';
   try {
-    const images = await fetch('img/gallery/images.json').then(r => r.json());
-    galleryData  = images.slice(0, 8);
-    const grid   = document.getElementById('galleryGrid');
+    const images = await fetch(`img/gallery/${year}.json`).then(r => r.json());
+    galleryData = images;
     grid.innerHTML = '';
-
-    // Also fill event image stack with first 3 images
-    const stack = document.getElementById('eventImgStack');
-    if (stack && galleryData.length >= 3) {
-      stack.innerHTML = '';
-      const cells = [
-        {cls:'img-cell',style:'grid-row:1/3;border-radius:16px'},
-        {cls:'img-cell',style:'border-radius:12px'},
-        {cls:'img-cell',style:'border-radius:12px'},
-      ];
-      cells.forEach((c, i) => {
-        const cell = document.createElement('div');
-        cell.className = c.cls;
-        cell.style.cssText = c.style + ';overflow:hidden';
-        const img = document.createElement('img');
-        img.src = `img/gallery/${galleryData[i].file}`;
-        img.alt = galleryData[i].alt;
-        img.loading = 'lazy';
-        img.style.cssText = 'width:100%;height:100%;object-fit:cover;transition:transform .5s ease';
-        cell.appendChild(img);
-        cell.addEventListener('mouseenter', () => img.style.transform = 'scale(1.05)');
-        cell.addEventListener('mouseleave', () => img.style.transform = '');
-        stack.appendChild(cell);
-      });
-    }
-
-    galleryData.forEach((img, i) => {
+    galleryData.slice(0, 6).forEach((img, i) => {
       const item = document.createElement('div');
       item.className = 'gal-item';
-      item.onclick   = () => lbOpen(i);
-      item.innerHTML = `
-        <img src="img/gallery/${img.file}" alt="${img.alt}" loading="lazy"/>
-        <div class="gal-overlay"><span class="gal-zoom">⊕</span></div>`;
+      item.onclick = () => lbOpen(i);
+      item.innerHTML = `<img src="img/gallery/${year}/${img.file}" alt="${img.alt}" loading="lazy"/><div class="gal-overlay"><span class="gal-zoom">⊕</span></div>`;
       grid.appendChild(item);
     });
-    grid.querySelectorAll('.reveal, .gal-item').forEach(el => revealObs.observe(el));
+    if (cta) cta.href = `galerie.html?year=${year}`;
+    setTimeout(() => { grid.style.transition = 'opacity .35s'; grid.style.opacity = '1'; }, 20);
+
+    if (year === '2025') {
+      const stack = document.getElementById('eventImgStack');
+      if (stack && galleryData.length >= 3) {
+        stack.innerHTML = '';
+        [{style:'grid-row:1/3;border-radius:16px'},{style:'border-radius:12px'},{style:'border-radius:12px'}]
+          .forEach((c, i) => {
+            const cell = document.createElement('div');
+            cell.className = 'img-cell';
+            cell.style.cssText = c.style + ';overflow:hidden';
+            const img = document.createElement('img');
+            img.src = `img/gallery/2025/${galleryData[i].file}`;
+            img.alt = galleryData[i].alt;
+            img.loading = 'lazy';
+            img.style.cssText = 'width:100%;height:100%;object-fit:cover;transition:transform .5s ease';
+            cell.appendChild(img);
+            cell.addEventListener('mouseenter', () => img.style.transform = 'scale(1.05)');
+            cell.addEventListener('mouseleave', () => img.style.transform = '');
+            stack.appendChild(cell);
+          });
+      }
+    }
   } catch(e) {
-    document.getElementById('galleryGrid').innerHTML =
-      '<p style="grid-column:1/-1;text-align:center;padding:2rem;color:var(--muted)">Fotos folgen bald.</p>';
+    grid.style.opacity = '1';
+    grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:2rem;color:var(--muted)">Fotos folgen bald.</p>';
   }
+}
+
+function switchYear(btn) {
+  document.querySelectorAll('.gal-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  loadGallery(btn.dataset.year);
+}
+
+function switchYearById(year) {
+  const btn = document.querySelector(`.gal-tab[data-year="${year}"]`);
+  if (btn) switchYear(btn);
 }
 
 // ── Lightbox ─────────────────────────────────────────────
@@ -978,7 +1045,7 @@ function lbNav(dir) { lbIndex = (lbIndex + dir + galleryData.length) % galleryDa
 function lbUpdate() {
   if (!galleryData.length) return;
   const d = galleryData[lbIndex];
-  document.getElementById('lbImg').src     = `img/gallery/${d.file}`;
+  document.getElementById('lbImg').src     = `img/gallery/${activeYear}/${d.file}`;
   document.getElementById('lbImg').alt     = d.alt;
   document.getElementById('lbCaption').textContent = d.alt;
   document.getElementById('lbCount').textContent   = (lbIndex + 1) + ' / ' + galleryData.length;
@@ -1005,7 +1072,7 @@ function acceptPrivacy() {
 
 // ── Boot ─────────────────────────────────────────────────
 loadSlider();
-loadGallery();
+loadGallery('2025');
 </script>
 </body>
 </html>

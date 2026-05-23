@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Galerie – Veganer Markt Koblenz</title>
+<meta name="description" content="Fotos vom Veganer Markt Koblenz aus 2023, 2024 und 2025. Impressionen vom jährlichen veganen Markt am Zentralplatz Koblenz."/>
+<link rel="icon" type="image/png" href="img/logo.png"/>
+<link rel="apple-touch-icon" href="img/logo.png"/>
+<meta name="theme-color" content="#0d1f07"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#f5faec;color:#171f0c;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+:root{
+  --green:#78be00;--green-dark:#3a6000;--green-nav:#0d1f07;
+  --green-deep:#1c3a0f;--green-light:#9cd900;--lime:#d4f57a;
+  --pale:#f2fadf;--muted:#4a5e20;--border:rgba(120,190,0,.18);
+  --nav-h:72px;
+}
+
+/* ── NAV ── */
+nav#navbar{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:var(--nav-h);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;
+  background:rgba(13,31,7,.97);
+  box-shadow:0 2px 24px rgba(0,0,0,.35);
+  backdrop-filter:blur(12px);
+}
+.nav-logo{display:flex;align-items:center;gap:.7rem;flex-shrink:0}
+.nav-logo img{height:38px;width:38px;object-fit:contain;border-radius:6px}
+.nav-logo-text strong{display:block;font-family:'Fraunces',serif;font-size:.95rem;font-weight:700;color:#fff;white-space:nowrap}
+.nav-logo-text span{display:block;font-size:.58rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.42);margin-top:.1rem}
+.nav-links{display:flex;gap:1.4rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,.8);font-size:.77rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;transition:color .2s;white-space:nowrap}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:var(--green) !important;color:var(--green-nav) !important;padding:.45rem 1.2rem;border-radius:50px;font-weight:600 !important}
+.nav-cta:hover{background:var(--green-light) !important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;flex-shrink:0}
+.hamburger span{width:24px;height:2px;background:#fff;border-radius:1px;display:block;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:rgba(13,31,7,.98);padding:1.8rem 2rem;flex-direction:column;gap:0;z-index:999;border-top:1px solid rgba(255,255,255,.08)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:rgba(255,255,255,.85);font-size:.9rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:.9rem 0;border-bottom:1px solid rgba(255,255,255,.06);transition:color .2s}
+.mobile-menu a:last-child{border-bottom:none}
+.mobile-menu a:hover{color:var(--lime)}
+
+/* ── PAGE HEADER ── */
+.gal-header{
+  background:var(--green-nav);
+  padding:calc(var(--nav-h) + 3.5rem) 0 3.5rem;
+  text-align:center;
+  border-bottom:2px solid rgba(120,190,0,.15);
+}
+.page-tag{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--lime);background:rgba(212,245,122,.1);border:1px solid rgba(212,245,122,.2);padding:.28rem .85rem;border-radius:50px;margin-bottom:1rem}
+.gal-header h1{font-family:'Fraunces',serif;font-size:clamp(2.6rem,6vw,4.2rem);font-weight:700;color:#fff;margin-bottom:.6rem;line-height:1.05}
+.gal-header h1 em{font-style:italic;color:var(--lime)}
+.gal-header p{font-size:.95rem;font-weight:300;color:rgba(255,255,255,.5);letter-spacing:.04em}
+
+/* ── MAIN ── */
+main{padding:3rem 0 6rem}
+.container{max-width:1280px;margin:0 auto;padding:0 2rem}
+
+/* ── YEAR TABS ── */
+.year-tabs{display:flex;gap:.5rem;justify-content:center;margin-bottom:1.2rem;flex-wrap:wrap}
+.gal-tab{padding:.55rem 1.8rem;border-radius:50px;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border:2px solid var(--border);background:transparent;color:var(--muted);transition:all .22s;font-family:'DM Sans',sans-serif}
+.gal-tab:hover{border-color:var(--green);color:var(--green)}
+.gal-tab.active{background:var(--green);border-color:var(--green);color:var(--green-nav)}
+.photo-count{text-align:center;font-size:.82rem;color:var(--muted);font-weight:300;margin-bottom:2.2rem;letter-spacing:.04em;min-height:1.2rem}
+
+/* ── MASONRY ── */
+.masonry{columns:4;column-gap:8px}
+.masonry-item{break-inside:avoid;margin-bottom:8px;border-radius:10px;overflow:hidden;cursor:pointer;position:relative;background:var(--pale)}
+.masonry-item img{width:100%;display:block;transition:transform .4s ease}
+.masonry-item:hover img{transform:scale(1.04)}
+.masonry-overlay{position:absolute;inset:0;background:rgba(13,31,7,0);transition:background .3s;display:flex;align-items:center;justify-content:center}
+.masonry-item:hover .masonry-overlay{background:rgba(13,31,7,.28)}
+.masonry-zoom{color:#fff;font-size:1.5rem;opacity:0;transform:scale(.6);transition:all .25s;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+.masonry-item:hover .masonry-zoom{opacity:1;transform:scale(1)}
+
+/* ── BUTTON ── */
+.btn{display:inline-block;padding:.85rem 2.2rem;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:50px;cursor:pointer;transition:all .25s;border:none}
+.btn-outline{background:transparent;color:var(--green);border:2px solid var(--green)}
+.btn-outline:hover{background:var(--green);color:var(--green-nav);transform:translateY(-2px)}
+
+/* ── LIGHTBOX ── */
+.lightbox{display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.92);align-items:center;justify-content:center;flex-direction:column}
+.lightbox.open{display:flex}
+.lb-img-wrap{max-width:90vw;max-height:84vh;display:flex;align-items:center;justify-content:center}
+.lb-img-wrap img{max-width:90vw;max-height:84vh;object-fit:contain;border-radius:4px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.lb-close{position:fixed;top:1.5rem;right:2rem;color:rgba(255,255,255,.6);font-size:2rem;cursor:pointer;background:none;border:none;z-index:9001;transition:color .2s;line-height:1}
+.lb-close:hover{color:#fff}
+.lb-prev,.lb-next{position:fixed;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.6);font-size:1.8rem;cursor:pointer;background:rgba(255,255,255,.08);border:none;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:9001}
+.lb-prev{left:1.5rem}.lb-next{right:1.5rem}
+.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.18);color:#fff}
+.lb-caption{margin-top:.8rem;font-size:.82rem;font-weight:300;color:rgba(255,255,255,.45);letter-spacing:.06em}
+.lb-count{margin-top:.3rem;font-size:.72rem;color:rgba(255,255,255,.3);letter-spacing:.1em}
+
+/* ── FOOTER ── */
+footer{background:#060f03;padding:2.5rem 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
+.footer-brand{display:flex;align-items:center;gap:.75rem}
+.footer-brand img{height:32px;width:32px;object-fit:contain;border-radius:6px;opacity:.7}
+.footer-brand-text strong{display:block;font-family:'Fraunces',serif;font-size:.9rem;font-weight:700;color:#fff}
+.footer-brand-text span{font-size:.65rem;font-weight:300;color:rgba(255,255,255,.28);letter-spacing:.1em;text-transform:uppercase}
+.footer-links{display:flex;gap:1.2rem;flex-wrap:wrap;align-items:center}
+.footer-links a{font-size:.75rem;color:rgba(255,255,255,.3);transition:color .2s}
+.footer-links a:hover{color:rgba(255,255,255,.7)}
+.footer-copy{font-size:.7rem;color:rgba(255,255,255,.18);margin-top:1.2rem;border-top:1px solid rgba(255,255,255,.06);padding-top:1.2rem;text-align:center}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){.masonry{columns:3}}
+@media(max-width:768px){
+  :root{--nav-h:60px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .masonry{columns:2}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:420px){.masonry{columns:2}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="img/logo.png" alt="Veganer Markt Koblenz Logo"/>
+    <div class="nav-logo-text">
+      <strong>Veganer Markt Koblenz</strong>
+      <span>22. August 2026</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">← Startseite</a></li>
+    <li><a href="index.html#das-event">Das Event</a></li>
+    <li><a href="index.html#videos">Videos</a></li>
+    <li><a href="index.html#anfahrt">Anfahrt</a></li>
+    <li><a href="index.html#kontakt" class="nav-cta">Kontakt</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">← Startseite</a>
+  <a href="index.html#das-event" onclick="closeMenu()">Das Event</a>
+  <a href="index.html#videos" onclick="closeMenu()">Videos</a>
+  <a href="index.html#anfahrt" onclick="closeMenu()">Anfahrt</a>
+  <a href="index.html#kontakt" onclick="closeMenu()">Kontakt</a>
+  <a href="impressum.html" onclick="closeMenu()">Impressum</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="gal-header">
+  <div class="container">
+    <p class="page-tag">Impressionen</p>
+    <h1>Galerie – <em>Veganer Markt</em></h1>
+    <p>Koblenz 2023 · 2024 · 2025 &nbsp;·&nbsp; <span id="totalCount"></span></p>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<main>
+  <div class="container">
+    <div class="year-tabs">
+      <button class="gal-tab active" data-year="2025" onclick="switchYear(this)">2025</button>
+      <button class="gal-tab" data-year="2024" onclick="switchYear(this)">2024</button>
+      <button class="gal-tab" data-year="2023" onclick="switchYear(this)">2023</button>
+    </div>
+    <p class="photo-count" id="photoCount"></p>
+    <div class="masonry" id="galleryGrid"></div>
+    <div style="text-align:center;margin-top:2.8rem">
+      <button id="loadMore" class="btn btn-outline" onclick="loadMore()" style="display:none">
+        Weitere Fotos laden
+      </button>
+    </div>
+  </div>
+</main>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="lbClickOutside(event)">
+  <button class="lb-close" onclick="lbClose()">&#10005;</button>
+  <button class="lb-prev" onclick="lbNav(-1)">&#8592;</button>
+  <div class="lb-img-wrap"><img id="lbImg" src="" alt=""/></div>
+  <button class="lb-next" onclick="lbNav(1)">&#8594;</button>
+  <div class="lb-caption" id="lbCaption"></div>
+  <div class="lb-count" id="lbCount"></div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="img/logo.png" alt="Veganer Markt Koblenz"/>
+        <div class="footer-brand-text">
+          <strong>Veganer Markt Koblenz 2026</strong>
+          <span>Veranstaltet von ARIWA Koblenz</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Startseite</a>
+        <a href="index.html#das-event">Das Event</a>
+        <a href="index.html#kontakt">Kontakt</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+    <p class="footer-copy">© 2026 ARIWA Koblenz – Veganer Markt Koblenz</p>
+  </div>
+</footer>
+
+<script>
+// ── Nav ──────────────────────────────────────────────────
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+
+// ── Gallery ──────────────────────────────────────────────
+const BATCH = 24;
+let allPhotos = [], shownCount = 0, activeYear = '2025', lbIndex = 0;
+
+function folderPath(year) {
+  return `img/Veganer Markt ${year}/`;
+}
+
+function renderItem(photo, idx) {
+  const item = document.createElement('div');
+  item.className = 'masonry-item';
+  item.onclick = () => lbOpen(idx);
+  item.innerHTML = `<img src="${folderPath(activeYear)}${photo.file}" alt="${photo.alt}" loading="lazy"/><div class="masonry-overlay"><span class="masonry-zoom">⊕</span></div>`;
+  return item;
+}
+
+async function loadGallery(year) {
+  activeYear = year;
+  shownCount = 0;
+  const grid = document.getElementById('galleryGrid');
+  const moreBtn = document.getElementById('loadMore');
+  const countEl = document.getElementById('photoCount');
+  grid.style.opacity = '0';
+  grid.innerHTML = '';
+  moreBtn.style.display = 'none';
+  countEl.textContent = 'Fotos werden geladen…';
+  try {
+    allPhotos = await fetch(`img/gallery/all-${year}.json`).then(r => r.json());
+    countEl.textContent = `${allPhotos.length} Fotos`;
+    allPhotos.slice(0, BATCH).forEach((photo, i) => grid.appendChild(renderItem(photo, i)));
+    shownCount = Math.min(BATCH, allPhotos.length);
+    if (shownCount < allPhotos.length) {
+      const remaining = allPhotos.length - shownCount;
+      moreBtn.textContent = `Weitere ${Math.min(BATCH, remaining)} Fotos laden`;
+      moreBtn.style.display = 'inline-block';
+    }
+    setTimeout(() => { grid.style.transition = 'opacity .35s'; grid.style.opacity = '1'; }, 20);
+  } catch(e) {
+    countEl.textContent = '';
+    grid.style.opacity = '1';
+    grid.innerHTML = '<p style="text-align:center;padding:3rem;color:#4a5e20;grid-column:1/-1">Fotos konnten nicht geladen werden.</p>';
+  }
+}
+
+function loadMore() {
+  const grid = document.getElementById('galleryGrid');
+  const moreBtn = document.getElementById('loadMore');
+  allPhotos.slice(shownCount, shownCount + BATCH).forEach((photo, i) => {
+    grid.appendChild(renderItem(photo, shownCount + i));
+  });
+  shownCount = Math.min(shownCount + BATCH, allPhotos.length);
+  if (shownCount >= allPhotos.length) {
+    moreBtn.style.display = 'none';
+  } else {
+    const remaining = allPhotos.length - shownCount;
+    moreBtn.textContent = `Weitere ${Math.min(BATCH, remaining)} Fotos laden`;
+  }
+}
+
+function switchYear(btn) {
+  document.querySelectorAll('.gal-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  loadGallery(btn.dataset.year);
+}
+
+// ── Lightbox ─────────────────────────────────────────────
+function lbOpen(i) {
+  lbIndex = i;
+  lbUpdate();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function lbClose() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function lbClickOutside(e) { if (e.target === document.getElementById('lightbox')) lbClose(); }
+function lbNav(dir) {
+  lbIndex = (lbIndex + dir + allPhotos.length) % allPhotos.length;
+  lbUpdate();
+}
+function lbUpdate() {
+  if (!allPhotos.length) return;
+  const d = allPhotos[lbIndex];
+  document.getElementById('lbImg').src = `${folderPath(activeYear)}${d.file}`;
+  document.getElementById('lbImg').alt = d.alt;
+  document.getElementById('lbCaption').textContent = d.alt;
+  document.getElementById('lbCount').textContent = (lbIndex + 1) + ' / ' + allPhotos.length;
+}
+document.addEventListener('keydown', e => {
+  const lb = document.getElementById('lightbox');
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'ArrowRight') lbNav(1);
+  if (e.key === 'ArrowLeft')  lbNav(-1);
+  if (e.key === 'Escape')     lbClose();
+});
+
+// ── Total count in header ────────────────────────────────
+Promise.all(['2023','2024','2025'].map(y =>
+  fetch(`img/gallery/all-${y}.json`).then(r => r.json()).then(d => d.length).catch(() => 0)
+)).then(counts => {
+  const el = document.getElementById('totalCount');
+  if (el) el.textContent = counts.reduce((a,b) => a+b, 0) + ' Fotos';
+});
+
+// ── Boot ─────────────────────────────────────────────────
+const urlParams = new URLSearchParams(window.location.search);
+const yearParam = urlParams.get('year');
+const startYear = ['2023','2024','2025'].includes(yearParam) ? yearParam : '2025';
+const startBtn = document.querySelector(`.gal-tab[data-year="${startYear}"]`);
+if (startBtn) switchYear(startBtn);
+</script>
+</body>
+</html>
