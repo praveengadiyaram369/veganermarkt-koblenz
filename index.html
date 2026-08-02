@@ -275,6 +275,37 @@ nav#navbar.scrolled{background:rgba(13,31,7,.97);box-shadow:0 2px 24px rgba(0,0,
   background:var(--pale);color:var(--green-dark);border:1px solid var(--border);
 }
 
+/* ── AUSSTELLER ── */
+.auss-section{background:var(--pale)}
+.auss-tabs{display:flex;gap:.5rem;justify-content:center;margin-top:2.5rem;flex-wrap:wrap}
+.auss-tab{
+  padding:.52rem 1.5rem;border-radius:50px;
+  font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  cursor:pointer;border:2px solid var(--border);
+  background:transparent;color:var(--muted);
+  transition:all .22s;font-family:'DM Sans',sans-serif;
+}
+.auss-tab:hover{border-color:var(--green);color:var(--green)}
+.auss-tab.active{background:var(--green);border-color:var(--green);color:var(--green-nav)}
+.auss-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  gap:1rem;margin-top:2.5rem;
+}
+.auss-card{
+  background:#fff;border-radius:14px;padding:1.4rem 1.3rem;
+  border:1px solid var(--border);display:flex;align-items:center;gap:.9rem;
+  transition:transform .22s,box-shadow .22s;
+}
+.auss-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(120,190,0,.14)}
+.auss-icon{
+  width:44px;height:44px;border-radius:12px;flex-shrink:0;
+  background:var(--pale);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;font-size:1.3rem;
+}
+.auss-name{font-family:'Fraunces',serif;font-size:.98rem;font-weight:700;color:var(--text);line-height:1.3}
+.auss-tag{font-size:.72rem;font-weight:400;color:var(--muted);margin-top:.15rem}
+.auss-note{font-size:.8rem;font-weight:300;color:var(--muted);text-align:center;margin-top:2.2rem;line-height:1.7}
+
 /* ── GALLERY ── */
 .gallery-tabs{display:flex;gap:.5rem;justify-content:center;margin-top:2.5rem;flex-wrap:wrap}
 .gal-tab{
@@ -523,6 +554,7 @@ footer{background:#060f03;padding:3rem 0 2rem}
   <ul class="nav-links">
     <li><a href="#das-event">Das Event</a></li>
     <li><a href="#programm">Programm</a></li>
+    <li><a href="#aussteller">Aussteller</a></li>
     <li class="nav-dropdown">
       <a href="#galerie">Galerie <span class="nav-drop-arrow">▾</span></a>
       <div class="nav-dropdown-menu">
@@ -543,6 +575,7 @@ footer{background:#060f03;padding:3rem 0 2rem}
 <div class="mobile-menu" id="mobileMenu">
   <a href="#das-event"  onclick="closeMenu()">Das Event</a>
   <a href="#programm"  onclick="closeMenu()">Programm</a>
+  <a href="#aussteller" onclick="closeMenu()">Aussteller</a>
   <a href="#galerie"   onclick="closeMenu()">Galerie</a>
   <a href="galerie.html?year=2025" class="mobile-sub-link" onclick="closeMenu()">— 2025</a>
   <a href="galerie.html?year=2024" class="mobile-sub-link" onclick="closeMenu()">— 2024</a>
@@ -696,6 +729,131 @@ footer{background:#060f03;padding:3rem 0 2rem}
         <div class="prog-tags"><span class="prog-tag">Familie</span><span class="prog-tag">Kinder</span><span class="prog-tag">Eintritt frei</span></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- AUSSTELLER -->
+<section class="section auss-section" id="aussteller">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <span class="section-tag">Wer dabei ist</span>
+      <h2 class="section-title">Unsere <em>Aussteller</em> 2026.</h2>
+      <p class="section-body" style="max-width:560px;margin:0 auto">Über 25 kleine Manufakturen, Höfe, Vereine und Kreative sind beim Veganen Markt Koblenz mit dabei — von herzhaftem Streetfood über Mode bis Tierschutz zum Mitmachen.</p>
+    </div>
+    <div class="auss-tabs">
+      <button class="auss-tab active" data-cat="all" onclick="filterAuss(this)">Alle</button>
+      <button class="auss-tab" data-cat="food" onclick="filterAuss(this)">Essen &amp; Trinken</button>
+      <button class="auss-tab" data-cat="fashion" onclick="filterAuss(this)">Mode &amp; Accessoires</button>
+      <button class="auss-tab" data-cat="animal" onclick="filterAuss(this)">Tierschutz &amp; Umwelt</button>
+      <button class="auss-tab" data-cat="other" onclick="filterAuss(this)">Weiteres</button>
+    </div>
+    <div class="auss-grid" id="aussGrid">
+      <div class="auss-card reveal" data-cat="food">
+        <div class="auss-icon">🌶️</div>
+        <div><div class="auss-name">Vorsicht, scharf!</div><div class="auss-tag">Chiliprodukte</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="fashion">
+        <div class="auss-icon">💇‍♀️</div>
+        <div><div class="auss-name">Julia's Haarstube</div><div class="auss-tag">Haarpflegeprodukte</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="other">
+        <div class="auss-icon">🥕</div>
+        <div><div class="auss-name">SoLaWi Stopperich</div><div class="auss-tag">Obst &amp; Gemüse</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="other">
+        <div class="auss-icon">🌱</div>
+        <div><div class="auss-name">Little Leaves Microgreens</div><div class="auss-tag">Microgreens</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="food">
+        <div class="auss-icon">🍵</div>
+        <div><div class="auss-name">extravegantes</div><div class="auss-tag">Matchaprodukte</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="food">
+        <div class="auss-icon">🍷</div>
+        <div><div class="auss-name">Weingut Weber</div><div class="auss-tag">Bio-Wein von der Mosel</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="food">
+        <div class="auss-icon">🌮</div>
+        <div><div class="auss-name">Der Gute Heinrich</div><div class="auss-tag">Veganer Imbiss</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="food">
+        <div class="auss-icon">🧀</div>
+        <div><div class="auss-name">Petit Veganne</div><div class="auss-tag">Veganer Käse</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="food">
+        <div class="auss-icon">🧁</div>
+        <div><div class="auss-name">Vegan-Topia</div><div class="auss-tag">Backmischungen</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="food">
+        <div class="auss-icon">🫙</div>
+        <div><div class="auss-name">Land-Manufactur</div><div class="auss-tag">Pesto</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="fashion">
+        <div class="auss-icon">👕</div>
+        <div><div class="auss-name">Sandy P. Peng</div><div class="auss-tag">Statement-Mode</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="food">
+        <div class="auss-icon">🚚</div>
+        <div><div class="auss-name">Marla &amp; Mathildas</div><div class="auss-tag">Veganer Foodtruck</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="food">
+        <div class="auss-icon">🥤</div>
+        <div><div class="auss-name">NATGYM</div><div class="auss-tag">Proteinshakes</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="fashion">
+        <div class="auss-icon">🌵</div>
+        <div><div class="auss-name">Ony Nocturna</div><div class="auss-tag">Accessoires aus Kaktusleder</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="animal">
+        <div class="auss-icon">🦔</div>
+        <div><div class="auss-name">Wildtierpflegestation Koblenz e.V.</div><div class="auss-tag">Wildtierpflege</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="animal">
+        <div class="auss-icon">🌍</div>
+        <div><div class="auss-name">Klimabündnis Koblenz</div><div class="auss-tag">Klimaschutz-Netzwerk</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="fashion">
+        <div class="auss-icon">👗</div>
+        <div><div class="auss-name">loony Leah</div><div class="auss-tag">Handmade Mode</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="food">
+        <div class="auss-icon">☕</div>
+        <div><div class="auss-name">Café-linO</div><div class="auss-tag">Espressomobil</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="food">
+        <div class="auss-icon">📚</div>
+        <div><div class="auss-name">Vegranny</div><div class="auss-tag">Bücher &amp; Konserven</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="animal">
+        <div class="auss-icon">🎨</div>
+        <div><div class="auss-name">Stefanie Iwaniuk</div><div class="auss-tag">Tierrechtsmalerei</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="animal">
+        <div class="auss-icon">🕊️</div>
+        <div><div class="auss-name">Stadttaubenhilfe Koblenz/Neuwied e.V.</div><div class="auss-tag">Stadttaubenhilfe</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="fashion">
+        <div class="auss-icon">✊</div>
+        <div><div class="auss-name">Animal Justice Club</div><div class="auss-tag">Statement-Mode</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="animal">
+        <div class="auss-icon">🐄</div>
+        <div><div class="auss-name">die Kuhmunity e.V.</div><div class="auss-tag">Lebenshof</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="animal">
+        <div class="auss-icon">🐾</div>
+        <div><div class="auss-name">Tierrechtsverein</div><div class="auss-tag">Infostand</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="other">
+        <div class="auss-icon">🎲</div>
+        <div><div class="auss-name">VLiC VLAC</div><div class="auss-tag">Vegane Kinderspiele</div></div>
+      </div>
+      <div class="auss-card reveal" data-cat="food">
+        <div class="auss-icon">🍜</div>
+        <div><div class="auss-name">Project Vegan</div><div class="auss-tag">Veganer Imbiss</div></div>
+      </div>
+    </div>
+    <p class="auss-note">Aussteller-Liste Stand August 2026 · Änderungen vorbehalten.</p>
   </div>
 </section>
 
@@ -1023,6 +1181,15 @@ async function loadGallery(year) {
     grid.style.opacity = '1';
     grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:2rem;color:var(--muted)">Fotos folgen bald.</p>';
   }
+}
+
+function filterAuss(btn) {
+  document.querySelectorAll('.auss-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  const cat = btn.dataset.cat;
+  document.querySelectorAll('.auss-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'flex' : 'none';
+  });
 }
 
 function switchYear(btn) {

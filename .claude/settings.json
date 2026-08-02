@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(python3 -c \"import re; print\\('ok'\\)\")",
+      "Bash(python3 -)",
+      "Bash(cat /tmp/httpserver.log 2>/dev/null; echo \"---\"; ps aux | grep http.server | grep -v grep)",
+      "Read(//private/tmp/**)",
+      "Bash(pkill -f \"http.server 8934\")",
+      "Bash(command -v chromium-cli)",
+      "Bash(find / -maxdepth 6 -iname \"chromium-cli*\")",
+      "Bash(command -v node)",
+      "Bash(command -v npx)",
+      "Bash(npm ls *)",
+      "Bash(python3 -c \"import playwright\")",
+      "Bash(python3 -c \"import websockets; print\\('websockets ok'\\)\")",
+      "Bash(python3 -c \"import websocket; print\\('websocket-client ok'\\)\")",
+      "Bash(pip3 list *)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless=new --disable-gpu --no-sandbox --window-size=1440,4200 --screenshot=/private/tmp/claude-501/-Users-srisaipraveengadiyaram-Documents-Sri-Sai-Praveen-Ariwa-website-veganer-markt-koblenz/19975a18-10f9-43c3-bf97-f3f5eb991d4d/scratchpad/aussteller_full.png --virtual-time-budget=4000 'http://127.0.0.1:8934/index.html#aussteller')",
+      "Bash(echo \"exit: $?\")",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless=new --disable-gpu --window-size=1440,1200 --screenshot=/private/tmp/claude-501/-Users-srisaipraveengadiyaram-Documents-Sri-Sai-Praveen-Ariwa-website-veganer-markt-koblenz/19975a18-10f9-43c3-bf97-f3f5eb991d4d/scratchpad/top.png --user-data-dir=/private/tmp/claude-501/-Users-srisaipraveengadiyaram-Documents-Sri-Sai-Praveen-Ariwa-website-veganer-markt-koblenz/19975a18-10f9-43c3-bf97-f3f5eb991d4d/scratchpad/chrome-profile --virtual-time-budget=6000 http://127.0.0.1:8934/index.html)",
+      "Bash(echo \"exit $?\")",
+      "Bash(cat /tmp/chromelog.txt 2>/dev/null | tail -30; echo \"---procs---\"; ps aux | grep -i \"Google Chrome\" | grep -v grep)",
+      "Bash(pkill -9 -f \"Google Chrome.*headless\")",
+      "Bash(pkill -9 -f \"GoogleUpdater\")",
+      "Bash(lsof -iTCP:8934 -sTCP:LISTEN)"
+    ]
+  }
+}
