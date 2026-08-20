@@ -36,7 +36,8 @@
       "Bash(curl -sIL --max-time 10 http://www.cafe-lino.com/)",
       "Bash(curl -s -o /dev/null -w \"http status: %{http_code}\\\\n\" --max-time 10 -A \"Mozilla/5.0\" http://www.littleleavesmicrogreens.de/)",
       "Bash(curl -sk -o /dev/null -w \"https\\(insecure\\) status: %{http_code}\\\\n\" --max-time 10 -A \"Mozilla/5.0\" https://www.littleleavesmicrogreens.de/)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" --max-time 10 -A \"Mozilla/5.0\" https://www.gemeinsam-fuer-tierrechte.de/streetteams/)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" --max-time 10 -A \"Mozilla/5.0\" https://www.gemeinsam-fuer-tierrechte.de/streetteams/)",
+      "Bash(curl -s -L --max-time 15 -A \"Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36\" \"https://www.juliashaarstube.de/\")"
     ]
   }
 }
