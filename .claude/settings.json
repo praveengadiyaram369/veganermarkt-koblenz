@@ -23,7 +23,20 @@
       "Bash(cat /tmp/chromelog.txt 2>/dev/null | tail -30; echo \"---procs---\"; ps aux | grep -i \"Google Chrome\" | grep -v grep)",
       "Bash(pkill -9 -f \"Google Chrome.*headless\")",
       "Bash(pkill -9 -f \"GoogleUpdater\")",
-      "Bash(lsof -iTCP:8934 -sTCP:LISTEN)"
+      "Bash(lsof -iTCP:8934 -sTCP:LISTEN)",
+      "WebFetch(domain:www.juliashaarstube.de)",
+      "WebFetch(domain:weber-lehmen.de)",
+      "WebFetch(domain:www.vegranny.de)",
+      "WebFetch(domain:www.cafe-lino.com)",
+      "WebFetch(domain:xn--klimabndnis-koblenz-bbc.de)",
+      "WebFetch(domain:www.kuhmunity.de)",
+      "WebFetch(domain:www.stadttauben-koblenz-neuwied.de)",
+      "WebFetch(domain:loonyleah.de)",
+      "Bash(curl -s -o /dev/null -w \"http status: %{http_code}\\\\n\" --max-time 10 http://www.cafe-lino.com/)",
+      "Bash(curl -sIL --max-time 10 http://www.cafe-lino.com/)",
+      "Bash(curl -s -o /dev/null -w \"http status: %{http_code}\\\\n\" --max-time 10 -A \"Mozilla/5.0\" http://www.littleleavesmicrogreens.de/)",
+      "Bash(curl -sk -o /dev/null -w \"https\\(insecure\\) status: %{http_code}\\\\n\" --max-time 10 -A \"Mozilla/5.0\" https://www.littleleavesmicrogreens.de/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" --max-time 10 -A \"Mozilla/5.0\" https://www.gemeinsam-fuer-tierrechte.de/streetteams/)"
     ]
   }
 }

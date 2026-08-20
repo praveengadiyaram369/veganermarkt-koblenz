@@ -292,11 +292,17 @@ nav#navbar.scrolled{background:rgba(13,31,7,.97);box-shadow:0 2px 24px rgba(0,0,
   gap:1rem;margin-top:2.5rem;
 }
 .auss-card{
+  position:relative;
   background:#fff;border-radius:14px;padding:1.4rem 1.3rem;
   border:1px solid var(--border);display:flex;align-items:center;gap:.9rem;
   transition:transform .22s,box-shadow .22s;
 }
 .auss-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(120,190,0,.14)}
+a.auss-card::after{
+  content:'↗';position:absolute;top:.7rem;right:.85rem;
+  font-size:.72rem;color:var(--green);opacity:.5;transition:opacity .2s;
+}
+a.auss-card:hover::after{opacity:1}
 .auss-icon{
   width:44px;height:44px;border-radius:12px;flex-shrink:0;
   background:var(--pale);border:1px solid var(--border);
@@ -752,108 +758,108 @@ footer{background:#060f03;padding:3rem 0 2rem}
         <div class="auss-icon">🌶️</div>
         <div><div class="auss-name">Vorsicht, scharf!</div><div class="auss-tag">Chiliprodukte</div></div>
       </div>
-      <div class="auss-card reveal" data-cat="fashion">
+      <a class="auss-card reveal" data-cat="fashion" href="https://www.juliashaarstube.de/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">💇‍♀️</div>
         <div><div class="auss-name">Julia's Haarstube</div><div class="auss-tag">Haarpflegeprodukte</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="other">
+      </a>
+      <a class="auss-card reveal" data-cat="other" href="https://solawi-stopperich.de/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">🥕</div>
         <div><div class="auss-name">SoLaWi Stopperich</div><div class="auss-tag">Obst &amp; Gemüse</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="other">
+      </a>
+      <a class="auss-card reveal" data-cat="other" href="https://www.littleleavesmicrogreens.de/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">🌱</div>
         <div><div class="auss-name">Little Leaves Microgreens</div><div class="auss-tag">Microgreens</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="food">
+      </a>
+      <a class="auss-card reveal" data-cat="food" href="https://www.extravegantes.de/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">🍵</div>
         <div><div class="auss-name">extravegantes</div><div class="auss-tag">Matchaprodukte</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="food">
+      </a>
+      <a class="auss-card reveal" data-cat="food" href="https://weber-lehmen.de/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">🍷</div>
         <div><div class="auss-name">Weingut Weber</div><div class="auss-tag">Bio-Wein von der Mosel</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="food">
+      </a>
+      <a class="auss-card reveal" data-cat="food" href="https://www.derguteheinrich.de/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">🌮</div>
         <div><div class="auss-name">Der Gute Heinrich</div><div class="auss-tag">Veganer Imbiss</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="food">
+      </a>
+      <a class="auss-card reveal" data-cat="food" href="https://petit-veganne.com/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">🧀</div>
         <div><div class="auss-name">Petit Veganne</div><div class="auss-tag">Veganer Käse</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="food">
+      </a>
+      <a class="auss-card reveal" data-cat="food" href="https://vegan-topia.com/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">🧁</div>
         <div><div class="auss-name">Vegan-Topia</div><div class="auss-tag">Backmischungen</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="food">
+      </a>
+      <a class="auss-card reveal" data-cat="food" href="https://www.land-manufactur.de/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">🫙</div>
         <div><div class="auss-name">Land-Manufactur</div><div class="auss-tag">Pesto</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="fashion">
+      </a>
+      <a class="auss-card reveal" data-cat="fashion" href="https://www.sandyppeng.com/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">👕</div>
         <div><div class="auss-name">Sandy P. Peng</div><div class="auss-tag">Statement-Mode</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="food">
+      </a>
+      <a class="auss-card reveal" data-cat="food" href="https://www.marlaundmathildas.de/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">🚚</div>
         <div><div class="auss-name">Marla &amp; Mathildas</div><div class="auss-tag">Veganer Foodtruck</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="food">
+      </a>
+      <a class="auss-card reveal" data-cat="food" href="https://www.natgym.de/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">🥤</div>
         <div><div class="auss-name">NATGYM</div><div class="auss-tag">Proteinshakes</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="fashion">
+      </a>
+      <a class="auss-card reveal" data-cat="fashion" href="https://onynocturna.de/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">🌵</div>
-        <div><div class="auss-name">Ony Nocturna</div><div class="auss-tag">Accessoires aus Kaktusleder</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="animal">
+        <div><div class="auss-name">Onynocturna</div><div class="auss-tag">Accessoires aus Kaktusleder</div></div>
+      </a>
+      <a class="auss-card reveal" data-cat="animal" href="https://www.wildtierpflegestation-koblenz.de/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">🦔</div>
         <div><div class="auss-name">Wildtierpflegestation Koblenz e.V.</div><div class="auss-tag">Wildtierpflege</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="animal">
+      </a>
+      <a class="auss-card reveal" data-cat="animal" href="https://xn--klimabndnis-koblenz-bbc.de/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">🌍</div>
         <div><div class="auss-name">Klimabündnis Koblenz</div><div class="auss-tag">Klimaschutz-Netzwerk</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="fashion">
+      </a>
+      <a class="auss-card reveal" data-cat="fashion" href="https://loonyleah.de/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">👗</div>
         <div><div class="auss-name">loony Leah</div><div class="auss-tag">Handmade Mode</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="food">
+      </a>
+      <a class="auss-card reveal" data-cat="food" href="http://www.cafe-lino.com/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">☕</div>
         <div><div class="auss-name">Café-linO</div><div class="auss-tag">Espressomobil</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="food">
+      </a>
+      <a class="auss-card reveal" data-cat="food" href="https://www.vegranny.de/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">📚</div>
         <div><div class="auss-name">Vegranny</div><div class="auss-tag">Bücher &amp; Konserven</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="animal">
+      </a>
+      <a class="auss-card reveal" data-cat="animal" href="https://stefanie-iwaniuk.de/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">🎨</div>
         <div><div class="auss-name">Stefanie Iwaniuk</div><div class="auss-tag">Tierrechtsmalerei</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="animal">
+      </a>
+      <a class="auss-card reveal" data-cat="animal" href="https://www.stadttauben-koblenz-neuwied.de/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">🕊️</div>
         <div><div class="auss-name">Stadttaubenhilfe Koblenz/Neuwied e.V.</div><div class="auss-tag">Stadttaubenhilfe</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="fashion">
+      </a>
+      <a class="auss-card reveal" data-cat="fashion" href="https://animaljusticeclub.com/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">✊</div>
         <div><div class="auss-name">Animal Justice Club</div><div class="auss-tag">Statement-Mode</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="animal">
+      </a>
+      <a class="auss-card reveal" data-cat="animal" href="https://www.kuhmunity.de/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">🐄</div>
         <div><div class="auss-name">die Kuhmunity e.V.</div><div class="auss-tag">Lebenshof</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="animal">
+      </a>
+      <a class="auss-card reveal" data-cat="animal" href="https://www.gemeinsam-fuer-tierrechte.de/streetteams/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">🐾</div>
-        <div><div class="auss-name">Tierrechtsverein</div><div class="auss-tag">Infostand</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="other">
+        <div><div class="auss-name">PETA Streetteam Koblenz</div><div class="auss-tag">Tierrechte-Infostand</div></div>
+      </a>
+      <a class="auss-card reveal" data-cat="other" href="https://www.vlicvlac.com/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">🎲</div>
         <div><div class="auss-name">VLiC VLAC</div><div class="auss-tag">Vegane Kinderspiele</div></div>
-      </div>
-      <div class="auss-card reveal" data-cat="food">
+      </a>
+      <a class="auss-card reveal" data-cat="food" href="https://www.project-vegan.de/" target="_blank" rel="noopener noreferrer">
         <div class="auss-icon">🍜</div>
         <div><div class="auss-name">Project Vegan</div><div class="auss-tag">Veganer Imbiss</div></div>
-      </div>
+      </a>
     </div>
-    <p class="auss-note">Aussteller-Liste Stand August 2026 · Änderungen vorbehalten.</p>
+    <p class="auss-note">Aussteller-Liste Stand August 2026 · Änderungen vorbehalten. Verlinkte Namen führen zur jeweiligen offiziellen Website des Ausstellers.</p>
   </div>
 </section>
 
